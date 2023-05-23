@@ -11,10 +11,18 @@ class LinkedList:
     def __init__(self,head=None):
         self.head = head
 
-    def insert(self, value):
-        new_node = Node(value)
-        new_node.next = self.head
-        self.head = new_node 
+    # def insert(self, value):
+    #     new_node = Node(value)
+    #     new_node.next = self.head
+    #     self.head = new_node 
+
+    def insert (self , value):
+         new_node = Node(value)
+         if self.head is None:
+            self.head = new_node
+         else:
+             new_node.next = self.head
+             self.head = new_node  
 
     def append(self, new_value):
         new_node = Node(new_value)
@@ -25,6 +33,8 @@ class LinkedList:
             while current.next is not None:
                 current = current.next
             current.next = new_node
+
+            
     def to_string(self):
         result = ""
         current = self.head
@@ -61,7 +71,6 @@ if __name__ == "__main__":
     list_2.insert("5")
     list_2.insert("3")
     list_2.insert("2")
-    # print(ll2.to_string())
     list_3 = LinkedList.merge_Lists(list_1,list_2)
     print(list_3.to_string())
 
