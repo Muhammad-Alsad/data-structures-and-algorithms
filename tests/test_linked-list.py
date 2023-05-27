@@ -13,18 +13,6 @@ def test_insert_into_linked_list():
     expected = 'a'
     assert actual == expected
 
-def test_insert_into_linked_list1():
-    my_list = LinkedList()
-    my_list.insert('b')
-    actual = my_list.head.value
-    expected = 'b'
-    assert actual == expected
-
-def test_linkedlist_instantiattion_empty():
-    new_list = LinkedList()
-    actual = (new_list.head == None)
-    expected = True
-    assert actual == expected
 
 def test_linkedlist_insertion_by_function():
     new_list = LinkedList()
@@ -34,47 +22,36 @@ def test_linkedlist_insertion_by_function():
     expected = "Georgia"
     assert actual == expected
 
-def test_linkedlist_kthFromEnd_zero():
+# @pytest.mark.skip(reason="Done")
+def test_linkedlist_head_points_to_first_node_():
     new_list = LinkedList()
-    new_list.insert("1")
-    new_list.insert("3")
-    new_list.insert("8")
-    new_list.insert("2")
-    assert new_list.kthFromEnd(0) == "2"
+    new_list.insert("London")
+    new_list.insert("Paris")
+    new_list.insert("Amsterdam")
+    new_list.insert("Manila")
+    new_list.insert("Tokyo")
+    head = new_list.head.value
+    actual = head
+    expected = "Tokyo"
+    assert actual == expected
 
-def test_linkedlist_kthFromEnd_two():
-    new_list2 = LinkedList()
-    new_list2.insert("1")
-    new_list2.insert("3")
-    new_list2.insert("8")
-    new_list2.insert("2")
-    assert new_list2.kthFromEnd(2) == "3"
+# @pytest.mark.skip(reason="Done")
+def test_linkedlist_includes_():
+    new_list = LinkedList()
+    new_list.insert("Berlin")
+    new_list.insert("Istanbul")
+    new_list.insert("Zegreb")
+    assert new_list.includes("Berlin") == True
+    assert new_list.includes("Moscow") == False
 
-def test_linkedlist_kthFromEnd_three():
-    new_list3 = LinkedList()
-    new_list3.insert("1")
-    new_list3.insert("3")
-    new_list3.insert("8")
-    new_list3.insert("2")
-    assert new_list3.kthFromEnd(3) == "1"
+def test_linked_list():
+    my_list = LinkedList()
+    my_list.insert('a')
+    my_list.insert('b')
+    my_list.insert('c')
+    my_list.insert('d')
+    actual = (my_list.head.value, my_list.head.next.value, my_list.head.next.next.value)
+    expected =  ('d', 'c', 'b') 
+    assert actual == expected
+    
 
-def test_linkedlist_kthFromEnd_negative():
-    new_list3 = LinkedList()
-    new_list3.insert("1")
-    new_list3.insert("3")
-    new_list3.insert("8")
-    new_list3.insert("2")
-    assert new_list3.kthFromEnd(-1) == "1"
-
-def test_linkedlist_kthFromEnd_six():
-    new_list4 = LinkedList()
-    new_list4.insert("1")
-    new_list4.insert("3")
-    new_list4.insert("8")
-    new_list4.insert("2")
-    assert new_list4.kthFromEnd(6) == "3"
-
-def test_linkedlist_kthFromEnd_size_of_one():
-    new_list5 = LinkedList()
-    new_list5.insert("2")
-    assert new_list5.kthFromEnd(0) == "2"

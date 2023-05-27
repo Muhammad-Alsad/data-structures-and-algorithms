@@ -1,0 +1,1 @@
+![Linked_List](./assets/1.jpg)
