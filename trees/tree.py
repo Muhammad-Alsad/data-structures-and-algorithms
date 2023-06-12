@@ -122,6 +122,8 @@ class BinarySearch(Tree):
                     root.right = Tnode(value)
                     return
                 root = root.right
+    def tree_max():
+        pass                
 
 if __name__ == "__main__":
     tree = Tree()
