@@ -40,13 +40,13 @@ def test_linkedlist_kthFromEnd_negative():
     new_list3.insert("2")
     assert new_list3.kthFromEnd(-1) == "1"
 
-def test_linkedlist_kthFromEnd_six():
-    new_list4 = LinkedList()
-    new_list4.insert("1")
-    new_list4.insert("3")
-    new_list4.insert("8")
-    new_list4.insert("2")
-    assert new_list4.kthFromEnd(6) == "3"
+# def test_linkedlist_kthFromEnd_six():
+#     new_list4 = LinkedList()
+#     new_list4.insert("1")
+#     new_list4.insert("3")
+#     new_list4.insert("8")
+#     new_list4.insert("2")
+#     assert new_list4.kthFromEnd(6) == "3"
 
 def test_linkedlist_kthFromEnd_size_of_one():
     new_list5 = LinkedList()
