@@ -48,3 +48,6 @@ class HashTable:
     
     def keys(self):
         return self.keys
+    
+    def hashmap_repeated_word():
+        pass
