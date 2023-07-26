@@ -62,3 +62,7 @@ class HashTable:
                 return word
             word_table.set(word, 1)
         return None
+    
+
+    def tree_intersection():
+        pass
