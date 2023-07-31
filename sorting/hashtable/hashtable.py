@@ -94,8 +94,20 @@ class HashTable:
             word_table.set(word, 1)
         return None
 
-    def hash_left_join():
-        pass    
+    def left_join(hashmap1, hashmap2):
+        if not hashmap1:
+            raise ValueError("Left hashmap is empty")
+
+        all_keys = set(hashmap1.keys()) | set(hashmap2.keys())
+
+        result = []
+        for key in all_keys:
+            entry = [key]
+            entry.append(hashmap1.get(key, None))
+            entry.append(hashmap2.get(key, None))
+            result.append(entry)
+
+        return result    
     
 
 
@@ -125,31 +137,48 @@ def hashmap_tree_values(tree):
 
 
 # Example usage:
-tree1 = BinaryTree()
-tree1.insert(50)
-tree1.insert(30)
-tree1.insert(70)
-tree1.insert(20)
-tree1.insert(40)
-tree1.insert(60)
-tree1.insert(80)
+# tree1 = BinaryTree()
+# tree1.insert(50)
+# tree1.insert(30)
+# tree1.insert(70)
+# tree1.insert(20)
+# tree1.insert(40)
+# tree1.insert(60)
+# tree1.insert(80)
 
-tree2 = BinaryTree()
-tree2.insert(8)
-tree2.insert(4)
-tree2.insert(12)
-tree2.insert(2)
-tree2.insert(6)
-tree2.insert(10)
-tree2.insert(14)
-tree2.insert(1)
-tree2.insert(3)
-tree2.insert(5)
-tree2.insert(7)
-tree2.insert(9)
-tree2.insert(11)
-tree2.insert(13)
-tree2.insert(15)
+# tree2 = BinaryTree()
+# tree2.insert(8)
+# tree2.insert(4)
+# tree2.insert(12)
+# tree2.insert(2)
+# tree2.insert(6)
+# tree2.insert(10)
+# tree2.insert(14)
+# tree2.insert(1)
+# tree2.insert(3)
+# tree2.insert(5)
+# tree2.insert(7)
+# tree2.insert(9)
+# tree2.insert(11)
+# tree2.insert(13)
+# tree2.insert(15)
 
-intersection = tree_intersection(tree1, tree2)
-print(intersection) 
+# intersection = tree_intersection(tree1, tree2)
+# print(intersection) 
+
+
+hashmap1 = {
+    'apple': "red",
+    'banana': "green",
+    'orange': "orange"
+}
+
+hashmap2 = {
+    'banana': 'yellow',
+    'kiwi': 'green',
+    'grape': 'purple'
+}
+
+result = HashTable.left_join(hashmap1, hashmap2)
+
+print(result)
