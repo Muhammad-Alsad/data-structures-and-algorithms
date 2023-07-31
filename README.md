@@ -6,8 +6,12 @@
 | # | Challenge |
 |----------|----------|
 | 1 | [Reverse Array Challenge](./array-reverse/WhiteBord-array-reverse.md) |
-| 2| [Array Insert Shift Challenge](./array-insert-shift/array-insert-shift.md) |
-| 3| [array -binary-tree](./array-binary-search/assets/Untitled%20(2).jpg) |
+| 2 | [Array Insert Shift Challenge](./array-insert-shift/array-insert-shift.md) |
+| 3 | [array -binary-tree](./array-binary-search/assets/Untitled%20(2).jpg) |
+| 4 | [repated_word](./sorting/hashtable/assets/repate_word.jpg) |
+
+
+
 <!-- | 4|  | [Linked list ](./linked_list/assets/1.jpg) |
 | 5|  | [Linked list insertions ](./linked_list_insertions/assets/append%20function.jpg) |
 | 6|  | [Linked list Kth](./linked_list_kth/assets/Kth.jpg) |
