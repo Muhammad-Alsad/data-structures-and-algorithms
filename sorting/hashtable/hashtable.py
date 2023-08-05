@@ -1,7 +1,7 @@
 class Node:
-    def __init__(self, value, _next=None):
+    def __init__(self, value, next=None):
         self.value = value
-        self.next = _next
+        self.next = next
 
 
 class TreeNode:
@@ -96,12 +96,12 @@ class HashTable:
     
 
 
-def tree_intersection(tree1, tree2):
-        values_set1 = hashmap_tree_values(tree1)
-        values_set2 = hashmap_tree_values(tree2)
+# def tree_intersection(tree1, tree2):
+#         values_set1 = hashmap_tree_values(tree1)
+#         values_set2 = hashmap_tree_values(tree2)
 
-        intersection_set = values_set1.intersection(values_set2)
-        return intersection_set
+#         intersection_set = values_set1.intersection(values_set2)
+#         return intersection_set
 
 def hashmap_tree_values(tree):
         values_set = set()
@@ -121,32 +121,59 @@ def hashmap_tree_values(tree):
     
 
 
+
+
+def tree_intersection(t1, t2):
+    
+    hasht = HashTable()
+    common_values = []
+
+    def _walk_t1(node):
+        if node:
+            hasht.set(str(node.value), 0)
+            _walk_t1(node.left)
+            _walk_t1(node.right)
+
+    _walk_t1(t1.root)
+
+    def _walk_t2(node):
+        if node:
+            if hasht.has(str(node.value)):
+                common_values.append(str(node.value))
+            _walk_t2(node.left)
+            _walk_t2(node.right)
+
+    _walk_t2(t2.root)
+
+    return common_values
+
+
 # Example usage:
 tree1 = BinaryTree()
-tree1.insert(50)
-tree1.insert(30)
-tree1.insert(70)
-tree1.insert(20)
-tree1.insert(40)
-tree1.insert(60)
-tree1.insert(80)
+tree1._insert_recursive(50)
+tree1._insert_recursive(30)
+tree1._insert_recursive(70)
+tree1._insert_recursive(20)
+tree1._insert_recursive(40)
+tree1._insert_recursive(60)
+tree1._insert_recursive(80)
 
 tree2 = BinaryTree()
-tree2.insert(8)
-tree2.insert(4)
-tree2.insert(12)
-tree2.insert(2)
-tree2.insert(6)
-tree2.insert(10)
-tree2.insert(14)
-tree2.insert(1)
-tree2.insert(3)
-tree2.insert(5)
-tree2.insert(7)
-tree2.insert(9)
-tree2.insert(11)
-tree2.insert(13)
-tree2.insert(15)
+tree2._insert_recursive(8)
+tree2._insert_recursive(4)
+tree2._insert_recursive(12)
+tree2._insert_recursive(2)
+tree2._insert_recursive(6)
+tree2._insert_recursive(10)
+tree2._insert_recursive(14)
+tree2._insert_recursive(1)
+tree2._insert_recursive(3)
+tree2._insert_recursive(5)
+tree2._insert_recursive(7)
+tree2._insert_recursive(9)
+tree2._insert_recursive(11)
+tree2._insert_recursive(13)
+tree2._insert_recursive(15)
 
 intersection = tree_intersection(tree1, tree2)
 print(intersection) 
