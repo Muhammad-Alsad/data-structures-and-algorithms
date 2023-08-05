@@ -276,6 +276,21 @@ class HashTable:
                 return word
             word_table.set(word, 1)
         return None
+
+    def left_join(hashmap1, hashmap2):
+        if not hashmap1:
+            raise ValueError("Left hashmap is empty")
+
+        all_keys = set(hashmap1.keys()) | set(hashmap2.keys())
+
+        result = []
+        for key in all_keys:
+            entry = [key]
+            entry.append(hashmap1.get(key, None))
+            entry.append(hashmap2.get(key, None))
+            result.append(entry)
+
+        return result    
     
 
 def tree_intersection(t1, t2):
@@ -335,4 +350,6 @@ if __name__ == "__main__":
     tree2.root.right.right.left = TreeNode("4")
     tree2.root.right.right.right = TreeNode("500")
 
+
     print(tree_intersection(tree,tree2)) # == ["100","160","125","175","200","350","500"]
+
