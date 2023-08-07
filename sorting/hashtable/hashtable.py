@@ -321,6 +321,8 @@ def tree_intersection(t1, t2):
     return result
 
 
+<<<<<<< HEAD
+=======
 if __name__ == "__main__":
 
     tree = BinaryTree()
@@ -349,6 +351,7 @@ if __name__ == "__main__":
     tree2.root.right.right = TreeNode("350")
     tree2.root.right.right.left = TreeNode("4")
     tree2.root.right.right.right = TreeNode("500")
+>>>>>>> main
 
 
     print(tree_intersection(tree,tree2)) # == ["100","160","125","175","200","350","500"]
