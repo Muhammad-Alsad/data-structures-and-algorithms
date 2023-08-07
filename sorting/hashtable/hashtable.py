@@ -136,35 +136,6 @@ def hashmap_tree_values(tree):
     
 
 
-# Example usage:
-# tree1 = BinaryTree()
-# tree1.insert(50)
-# tree1.insert(30)
-# tree1.insert(70)
-# tree1.insert(20)
-# tree1.insert(40)
-# tree1.insert(60)
-# tree1.insert(80)
-
-# tree2 = BinaryTree()
-# tree2.insert(8)
-# tree2.insert(4)
-# tree2.insert(12)
-# tree2.insert(2)
-# tree2.insert(6)
-# tree2.insert(10)
-# tree2.insert(14)
-# tree2.insert(1)
-# tree2.insert(3)
-# tree2.insert(5)
-# tree2.insert(7)
-# tree2.insert(9)
-# tree2.insert(11)
-# tree2.insert(13)
-# tree2.insert(15)
-
-# intersection = tree_intersection(tree1, tree2)
-# print(intersection) 
 
 
 hashmap1 = {
