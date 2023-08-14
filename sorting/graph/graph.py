@@ -196,22 +196,48 @@ class Graph:
                     visted.add(neighbor)
 
         return result
-        
-if __name__ == "__main__":
-    g = Graph()
-    a = g.add_vertix('A')
-    b = g.add_vertix('B')
-    e = g.add_vertix('E')
-    c = g.add_vertix('C')
-    d = g.add_vertix('D')
-
-    g.add_edge(a,b)
-    g.add_edge(a,c)
-    g.add_edge(b,d)
-    g.add_edge(b,e)
-    g.add_edge(e,d)
-    g.add_edge(e,c)
-    print(g.breadth_first(a))
-
     
+def business_trip(graph, cities):
+    """
+         
+    Calculate the cost of a business trip between cities using direct flights.
+
+    This function determines whether a trip is possible with direct flights
+    between the provided cities and calculates the total cost of the trip.
+    """
+    if not cities or len(cities) < 2:
+        return None
+
+    total_cost = 0
+
+    for i in range(len(cities) - 1):
+        if cities[i] not in graph or cities[i + 1] not in graph[cities[i]]:
+            return None
+
+        total_cost += graph[cities[i]][cities[i + 1]]
+
+    return total_cost
+
+ 
+
+
+if __name__ == "__main__":
+    pass
+    # g = Graph()
+    # a = g.add_vertix('A')
+    # b = g.add_vertix('B')
+    # e = g.add_vertix('E')
+    # c = g.add_vertix('C')
+    # d = g.add_vertix('D')
+
+    # g.add_edge(a,b)
+    # g.add_edge(a,c)
+    # g.add_edge(b,d)
+    # g.add_edge(b,e)
+    # g.add_edge(e,d)
+    # g.add_edge(e,c)
+    # print(g.breadth_first(a))
+
+
+
     
