@@ -1,0 +1,66 @@
+from graph import Vertix,Edge,Queue,Graph
+
+
+
+
+def business_trip(graph, cities):
+    """
+         
+    Calculate the cost of a business trip between cities using direct flights.
+
+    This function determines whether a trip is possible with direct flights
+    between the provided cities and calculates the total cost of the trip.
+    """
+
+
+    start_city = cities.pop(0)
+    vertixes  = graph.get_vertices()
+    start_vertix = None
+    
+    for vertex in vertixes:
+        if vertex.value == start_city:
+            start_vertix = Vertix
+    
+    total_cost = 0
+    current_vertix = start_vertix
+
+    while cities:
+        next_city = cities.pop(0)
+        neighbors = graph.get_neighbors(current_vertix)
+        check = False
+
+        for neighbor in neighbors:
+            
+            if neighbor.vertix.value == next_city:
+                check = True
+                total_cost += neighbor.weight
+                current_vertix = neighbor.vertix
+
+        if not check:
+            return None
+        
+
+    return total_cost    
+
+
+
+if __name__ == "__main__":
+    g = Graph()
+    Pandora = g.add_vertix('Pandora')
+    Metroville = g.add_vertix('Metroville')
+    Arendelle = g.add_vertix('Arendelle')
+    Naboo = g.add_vertix('Naboo')
+    Monstropolis = g.add_vertix('Monstropolis')
+    Narnia = g.add_vertix('Narnia')
+    
+    g.add_edge(Metroville,Pandora,82)
+    g.add_edge(Metroville,Arendelle,99)
+    g.add_edge(Metroville,Narnia,37)
+    g.add_edge(Metroville,Naboo,26)
+    g.add_edge(Metroville,Monstropolis,105)
+    g.add_edge(Pandora,Arendelle,150)
+    g.add_edge(Arendelle,Monstropolis,42)
+    g.add_edge(Naboo,Monstropolis,73)
+    g.add_edge(Narnia,Naboo,250)
+
+    print(business_trip(g,["Narnia", "Arendelle", "Naboo"]))
