@@ -1,6 +1,9 @@
 import pytest 
 from collections import deque
 from graph import Graph
+from graph import business_trip
+
+
 
 def test_get_vertices():
     graph = Graph()
@@ -48,3 +51,30 @@ def test_size():
 
 
 
+#####
+
+
+def test_cases():
+    g = Graph()
+    Pandora = g.add_vertix('Pandora')
+    Metroville = g.add_vertix('Metroville')
+    Arendelle = g.add_vertix('Arendelle')
+    Naboo = g.add_vertix('Naboo')
+    Monstropolis = g.add_vertix('Monstropolis')
+    Narnia = g.add_vertix('Narnia')
+
+    # Add edges between the vertices
+    g.add_edge(Metroville, Pandora, 82)
+    g.add_edge(Metroville, Arendelle, 99)
+    g.add_edge(Metroville, Narnia, 37)
+    g.add_edge(Metroville, Naboo, 26)
+    g.add_edge(Metroville, Monstropolis, 105)
+    g.add_edge(Pandora, Arendelle, 150)
+    g.add_edge(Arendelle, Monstropolis, 42)
+    g.add_edge(Naboo, Monstropolis, 73)
+    g.add_edge(Narnia, Naboo, 250)
+
+    assert business_trip(g,["Metroville", "Pandora"]) == 82
+    assert business_trip(g,["Arendelle","Monstropolis", "Naboo"]) == 115
+    assert business_trip(g,["Naboo", "Pandora"]) == None
+    assert business_trip(g,["Narnia", "Arendelle", "Naboo"]) == None
