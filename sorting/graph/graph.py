@@ -209,19 +209,23 @@ class Graph:
             Returns:
                 list: A list of vertices in the order of their pre-order depth-first traversal.
             """
+            result = []
             visited = set()
-            traversal_result = []
+            stack = [start_vertex]
+            visited.add(start_vertex)
 
-            def dfs(vertex):
-                visited.add(vertex)
-                traversal_result.append(vertex)
+            while len(stack):
+                current_vertex = stack.pop()
+                result.append(current_vertex.value)
+                neighbors = self.get_neighbors(current_vertex)
 
-                for neighbor, _ in self.vertices[vertex]:
+                for edge in reversed(neighbors):
+                    neighbor = edge.vertix
                     if neighbor not in visited:
-                        dfs(neighbor)
+                        stack.append(neighbor)
+                        visited.add(neighbor)
 
-            dfs(start_vertex)
-            return traversal_result
+            return result
         
 
 def business_trip(graph, cities):
@@ -270,8 +274,7 @@ def business_trip(graph, cities):
 
 
 if __name__ == "__main__":
-    # pass
-    # g = Graph()
+
     # a = g.add_vertix('A')
     # b = g.add_vertix('B')
     # e = g.add_vertix('E')
@@ -286,26 +289,30 @@ if __name__ == "__main__":
     # g.add_edge(e,c)
     # print(g.breadth_first(a))
     graph = Graph()
-    graph.add_vertix('A')
-    graph.add_vertix('B')
-    graph.add_vertix('C')
-    graph.add_vertix('D')
-    graph.add_vertix('E')
-    graph.add_vertix('F')
-    graph.add_vertix('G')
-    graph.add_vertix('H')
+    a = graph.add_vertix('A')
+    b = graph.add_vertix('B')
+    e = graph.add_vertix('E')
+    c = graph.add_vertix('C')
+    d = graph.add_vertix('D')
+    e = graph.add_vertix('E')
+    f = graph.add_vertix('F')
+    g = graph.add_vertix('G')
+    h = graph.add_vertix('H')
 
-    graph.add_edge('A', 'B')
-    graph.add_edge('A', 'C')
-    graph.add_edge('B', 'G')
-    graph.add_edge('C', 'D')
-    graph.add_edge('C', 'E')
-    graph.add_edge('E', 'H')
-    graph.add_edge('D', 'F')
+    graph.add_edge(a,b)
+    graph.add_edge(a,d)
+    
+    graph.add_edge(b,d)
+    graph.add_edge(b,c)
+    
+    graph.add_edge(d,e)
+    graph.add_edge(d,h)
+    graph.add_edge(d,f)
+    
+    graph.add_edge(f,h)
+    graph.add_edge(c,g)
 
-    start_vertex = 'A'
-    traversal_result = graph.depth_first(start_vertex)
-    print(", ".join(traversal_result))
+    print(graph.depth_first(a))
 
 
 
